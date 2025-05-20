@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Prompts Generator</title>
+    
+    <!-- WhatsApp/Social Share Preview -->
+    <meta property="og:title" content="Job Prompts Generator - Die 50 besten Chat-Prompts für deinen Beruf" />
+    <meta property="og:description" content="Die besten 50 AI-Prompts für deinen Job." />
+    <meta property="og:image" content="https://i.imgur.com/OYb8GXr.png" />
+    <meta property="og:url" content="https://www.contextery.com" />
+    <meta property="og:type" content="website" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0000FF',
+                        secondary: '#1F2937',
+                        accent: '#10B981'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-cyan-50 to-blue-50 min-h-screen py-8 sm:py-12">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+            <div class="bg-primary text-white py-6 px-6 sm:px-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-center">Job Prompts Generator</h2>
+                <p class="text-center text-lg mt-2 text-cyan-100">Erhalte die 50 wichtigsten Chat-Prompts für deinen Beruf</p>
+            </div>
+            
+            <div class="bg-cyan-50 border-b border-cyan-100 py-4 px-6 sm:px-8">
+                <div class="text-center">
+                    <p class="text-cyan-900 font-medium mb-1">⚡ Werde 80% schneller mit den perfekten Prompts für deinen Job!</p>
+                    <p class="text-cyan-800 text-sm">Kostenlos per E-Mail direkt in deinen Posteingang</p>
+                </div>
+            </div>
+
+            <!-- Video Section (Collapsible) -->
+            <div class="border-b border-gray-200">
+                <button id="videoToggle" class="w-full py-4 px-6 bg-gray-50 hover:bg-gray-100 text-left focus:outline-none">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-lg font-semibold text-gray-700">Video-Anleitung ansehen</span>
+                        </div>
+                        <svg id="videoIcon" class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </button>
+                
+                <div id="videoContainer" class="hidden px-6 py-6 bg-gray-50">
+                    <!-- Tella Video Embed -->
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0;" class="rounded-lg overflow-hidden shadow-lg">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                                src="https://www.tella.tv/video/cmaaoa9y9000d0bik5z0igwcu/embed?b=0&title=0&a=1&loop=0&t=0&muted=0&wt=0" 
+                                allowfullscreen allowtransparency>
+                        </iframe>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600 text-center">
+                        Erfahre in 2 Minuten, wie du die Prompts optimal nutzen kannst
+                    </p>
+                </div>
+            </div>
+            
+            <div class="p-6 sm:p-8">
+                <form id="promptForm" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Deine E-Mail-Adresse
+                        </label>
+                        <input type="email" id="email" 
+                               placeholder="z.B. max.mustermann@firma.de" 
+                               required
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all duration-300 outline-none text-gray-700">
+                        <p id="emailError" class="text-red-500 text-sm mt-1 hidden">Bitte geben Sie eine gültige E-Mail-Adresse ein</p>
+                    </div>
+                    
+                    <div>
+                        <label for="jobTitle" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Deine Berufsbezeichnung
+                        </label>
+                        <input type="text" id="jobTitle" 
+                               placeholder="z.B. Marketing Manager, Softwareentwickler, HR-Leiter" 
+                               required
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-all duration-300 outline-none text-gray-700">
+                        <p id="jobError" class="text-red-500 text-sm mt-1 hidden">Bitte geben Sie Ihre Berufsbezeichnung ein</p>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn"
+                            class="w-full bg-primary hover:bg-cyan-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl">
+                        KI-Auswirkungen analysieren
+                    </button>
+                </form>
+                
+                <div id="loading" class="hidden mt-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="animate-spin rounded-full h-12 w-12 border-4 border-cyan-200 border-t-primary mb-4"></div>
+                        <h3 class="text-xl font-semibold text-secondary mb-2">Bitte warten...</h3>
+                        <p class="text-gray-600">Die Prompts werden generiert und an deine E-Mail gesendet.</p>
+                    </div>
+                </div>
+                
+                <div id="response" class="hidden mt-8">
+                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-secondary mb-4">Deine generierten Prompts:</h3>
+                        <div id="promptContent" class="prose prose-sm max-w-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="mt-8 text-center">
+            <div id="ctaSection" class="hidden bg-white rounded-lg p-6 shadow-lg max-w-md mx-auto mb-6 border-2 border-cyan-100">
+                <div class="text-center mb-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-100 text-cyan-600 mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-gray-800 font-bold text-xl mb-2">Nächster Level gefällig?</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Entdecke, wie du AI & Automatisierung für deine gesamten Arbeitsprozesse nutzen kannst - von Routineaufgaben bis strategischen Entscheidungen.
+                    </p>
+                </div>
+                <a href="https://www.bit.ly/qrigenda" target="_blank" class="inline-block w-full text-center bg-primary hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl">
+                    Kostenloses AI-Beratungsgespräch sichern 🎯
+                </a>
+                <p class="text-center text-sm text-gray-500 mt-3">30 Minuten personalisierte Beratung, kein Verkaufsgespräch</p>
+            </div>
+            <p class="text-gray-500 text-sm">© Job Prompts Generator by <a href="https://www.contextery.com" target="_blank" class="text-primary hover:text-cyan-700 transition-colors">Contextery</a>.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Video Toggle Functionality
+        document.getElementById('videoToggle').addEventListener('click', function() {
+            const container = document.getElementById('videoContainer');
+            const icon = document.getElementById('videoIcon');
+            
+            container.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        });
+
+        // Validierungsfunktionen
+        function validateEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailRegex.test(email);
+        }
+
+        function validateJobTitle(jobTitle) {
+            return jobTitle && jobTitle.trim().length >= 2;
+        }
+
+        // Form Submit Handler
+        document.getElementById('promptForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const jobTitle = document.getElementById('jobTitle').value;
+            const emailError = document.getElementById('emailError');
+            const jobError = document.getElementById('jobError');
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingDiv = document.getElementById('loading');
+            const responseDiv = document.getElementById('response');
+            const promptContent = document.getElementById('promptContent');
+            
+            // Validierung
+            let isValid = true;
+            
+            if (!validateEmail(email)) {
+                emailError.classList.remove('hidden');
+                document.getElementById('email').classList.add('border-red-500');
+                isValid = false;
+            } else {
+                emailError.classList.add('hidden');
+                document.getElementById('email').classList.remove('border-red-500');
+            }
+            
+            if (!validateJobTitle(jobTitle)) {
+                jobError.classList.remove('hidden');
+                document.getElementById('jobTitle').classList.add('border-red-500');
+                isValid = false;
+            } else {
+                jobError.classList.add('hidden');
+                document.getElementById('jobTitle').classList.remove('border-red-500');
+            }
+            
+            if (!isValid) {
+                return;
+            }
+            
+            // UI-Feedback anzeigen
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Generierung läuft...';
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            submitBtn.classList.remove('hover:bg-cyan-600');
+            loadingDiv.classList.remove('hidden');
+            responseDiv.classList.add('hidden');
+            
+            const data = {
+                email: email,
+                job_title: jobTitle
+            };
+            
+            try {
+                // Korrekte Webhook-URL ohne -test
+                const webhookUrl = 'https://contextery.app.n8n.cloud/webhook/c062090d-19b8-4d20-b105-936cf72b1528';
+                
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+                }
+                
+                // E-Mail wird gesendet - Erfolgsanzeige anzeigen
+                loadingDiv.classList.add('hidden');
+                promptContent.innerHTML = 'Perfekt! Die generierten Prompts wurden erfolgreich an deine E-Mail gesendet. Bitte prüfe dein Postfach.';
+                responseDiv.classList.remove('hidden');
+                document.getElementById('ctaSection').classList.remove('hidden');
+                
+            } catch (error) {
+                console.error('Error:', error);
+                loadingDiv.classList.add('hidden');
+                
+                // Prüfen ob es ein Rate-Limit-Fehler ist
+                if (error.message && error.message.includes('Rate limit')) {
+                    promptContent.innerHTML = '❌ Sie haben heute bereits 3 Anfragen gestellt. Bitte versuchen Sie es morgen wieder.';
+                } else {
+                    promptContent.innerHTML = 'Ups! Es ist ein Fehler aufgetreten. Bitte versuche es später noch einmal.';
+                }
+                
+                responseDiv.classList.remove('hidden');
+            } finally {
+                // Button zurücksetzen
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'KI-Auswirkungen analysieren';
+                    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    submitBtn.classList.add('hover:bg-cyan-600');
+                }, 3000);
+            }
+        });
+
+        // Echtzeit-Validierung bei Eingabe
+        document.getElementById('email').addEventListener('input', function() {
+            const email = this.value;
+            const emailError = document.getElementById('emailError');
+            
+            if (!validateEmail(email) && email.length > 0) {
+                emailError.classList.remove('hidden');
+                this.classList.add('border-red-500');
+            } else {
+                emailError.classList.add('hidden');
+                this.classList.remove('border-red-500');
+            }
+        });
+
+        document.getElementById('jobTitle').addEventListener('input', function() {
+            const jobTitle = this.value;
+            const jobError = document.getElementById('jobError');
+            
+            if (!validateJobTitle(jobTitle) && jobTitle.length > 0) {
+                jobError.classList.remove('hidden');
+                this.classList.add('border-red-500');
+            } else {
+                jobError.classList.add('hidden');
+                this.classList.remove('border-red-500');
+            }
+        });
+    </script>
+</body>
+</html>
