@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowdfunding-Strategie Generator | Crowdify</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#3A5F8A',
+                            DEFAULT: '#2A4365',
+                            dark: '#1A2F4A',
+                        },
+                        secondary: {
+                            light: '#3A5F8A',
+                            DEFAULT: '#2A4365',
+                            dark: '#1A2F4A',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans text-gray-700 bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between py-4">
+                <a href="#" class="flex items-center text-2xl font-heading font-bold text-primary">
+                    <span class="mr-2 text-3xl">🚀</span>Crowdify
+                </a>
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-700 hover:text-primary" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+                <ul class="hidden md:flex items-center space-x-6">
+                    <li><a href="#wie-es-funktioniert" class="font-medium hover:text-primary transition-colors">Wie es funktioniert</a></li>
+                    <li><a href="#vorteile" class="font-medium hover:text-primary transition-colors">Vorteile</a></li>
+                    <li><a href="#zielgruppe" class="font-medium hover:text-primary transition-colors">Für wen</a></li>
+                    <li><a href="#start" class="bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-dark transition-all hover:-translate-y-0.5 hover:shadow-lg">Jetzt starten</a></li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <ul class="py-4 space-y-4">
+                    <li><a href="#wie-es-funktioniert" class="block font-medium hover:text-primary transition-colors">Wie es funktioniert</a></li>
+                    <li><a href="#vorteile" class="block font-medium hover:text-primary transition-colors">Vorteile</a></li>
+                    <li><a href="#zielgruppe" class="block font-medium hover:text-primary transition-colors">Für wen</a></li>
+                    <li><a href="#start" class="block bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-dark transition-all text-center mt-4">Jetzt starten</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-r from-primary to-primary-light text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-6 leading-tight">
+                Verwandle deine Leidenschaft in eine erfolgreiche Crowdfunding-Kampagne!
+            </h1>
+            <p class="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mb-10">
+                Hör auf zu raten – entwickle stattdessen eine Strategie, die Unterstützer begeistert und dir hilft, deine Finanzierungsziele zu erreichen.
+            </p>
+            <div class="flex flex-wrap justify-center gap-8 mt-12">
+                <div class="bg-white/10 backdrop-blur rounded-xl p-6 min-w-[160px] border border-white/20 hover:transform hover:-translate-y-2 transition-all hover:bg-white/15 hover:shadow-xl">
+                    <span class="block text-4xl font-extrabold mb-2">1000+</span>
+                    <span class="opacity-90 font-medium">Erfolgreiche Projekte</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-xl p-6 min-w-[160px] border border-white/20 hover:transform hover:-translate-y-2 transition-all hover:bg-white/15 hover:shadow-xl">
+                    <span class="block text-4xl font-extrabold mb-2">CHF 50M+</span>
+                    <span class="opacity-90 font-medium">Gesammelte Mittel</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-xl p-6 min-w-[160px] border border-white/20 hover:transform hover:-translate-y-2 transition-all hover:bg-white/15 hover:shadow-xl">
+                    <span class="block text-4xl font-extrabold mb-2">85%</span>
+                    <span class="opacity-90 font-medium">Erfolgsrate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generator Section -->
+    <section class="py-16 -mt-10 relative z-10" id="start">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <div class="bg-primary text-white p-6 md:p-8 text-center">
+                    <h2 class="text-2xl md:text-3xl font-heading font-bold mb-2">🎯 Dein Crowdfunding-Strategie Generator</h2>
+                    <p class="text-lg opacity-90">Beantworte einige Fragen und erhalte deine massgeschneiderte Strategie</p>
+                </div>
+                <div class="p-4">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQrBtJ-lZKJGgGepZA-EYCzrQVsPWcFVIHUKdO8UbFCgFYHA/viewform?embedded=true" 
+                            class="w-full h-[600px] md:h-[700px] border-0" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0">
+                        Wird geladen…
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-white" id="wie-es-funktioniert">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-gray-900">Wie es funktioniert</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-16">Unser Prozess ist einfach und effektiv, um dir zu helfen, deine Crowdfunding-Kampagne zum Erfolg zu führen</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition-all hover:-translate-y-2 hover:border-2 hover:border-primary">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 relative">
+                        <div class="absolute -inset-2 bg-primary/20 rounded-full"></div>
+                        1
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Beantworte Fragen</h3>
+                    <p class="text-gray-600">Teile uns Details zu deinem Projekt, deiner Zielgruppe und deinen Zielen mit.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition-all hover:-translate-y-2 hover:border-2 hover:border-primary">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 relative">
+                        <div class="absolute -inset-2 bg-primary/20 rounded-full"></div>
+                        2
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Erhalte deine Strategie</h3>
+                    <p class="text-gray-600">Wir generieren eine massgeschneiderte Strategie basierend auf deinen Antworten und Erfolgsmustern.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition-all hover:-translate-y-2 hover:border-2 hover:border-primary">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 relative">
+                        <div class="absolute -inset-2 bg-primary/20 rounded-full"></div>
+                        3
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Setze um und gewinne</h3>
+                    <p class="text-gray-600">Folge dem Aktionsplan und maximiere deine Chancen auf eine erfolgreiche Kampagne.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-16 bg-gray-50" id="vorteile">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-gray-900">Vorteile</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-16">Warum unser Strategie-Generator dir einen entscheidenden Vorteil verschafft</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 hover:border-primary">
+                    <div class="text-primary text-4xl mb-6 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Datenbasierte Strategien</h3>
+                    <p class="text-gray-600">Basierend auf Erfolgsmustern von über 1000 erfolgreichen Kampagnen.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 hover:border-primary">
+                    <div class="text-primary text-4xl mb-6 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Zielgruppenorientiert</h3>
+                    <p class="text-gray-600">Massgeschneiderte Ansätze für deine spezifische Zielgruppe und Nische.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 hover:border-primary">
+                    <div class="text-primary text-4xl mb-6 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Aktionsplan</h3>
+                    <p class="text-gray-600">Konkrete Schritte und Zeitpläne, nicht nur theoretische Ratschläge.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 hover:border-primary">
+                    <div class="text-primary text-4xl mb-6 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Zeitersparnis</h3>
+                    <p class="text-gray-600">Spare Wochen an Recherche und Planung mit sofortigen Ergebnissen.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 hover:border-primary">
+                    <div class="text-primary text-4xl mb-6 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Höhere Erfolgsquote</h3>
+                    <p class="text-gray-600">Projekte mit unserer Strategie haben eine 85% Erfolgsquote.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 hover:border-primary">
+                    <div class="text-primary text-4xl mb-6 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-4 text-gray-900">Community-Aufbau</h3>
+                    <p class="text-gray-600">Strategien zum Aufbau einer engagierten Community um dein Projekt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="py-16 bg-white" id="zielgruppe">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-gray-900">Für wen</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-16">Unser Strategie-Generator ist perfekt für verschiedene Arten von Projekten</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-primary shadow-md hover:shadow-xl transition-all hover:-translate-y-2">
+                    <h3 class="text-xl font-heading font-bold mb-4 text-primary">Kreative Projekte</h3>
+                    <p class="text-gray-600">Künstler, Musiker, Filmemacher und andere Kreative, die ihre Projekte finanzieren möchten.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-primary shadow-md hover:shadow-xl transition-all hover:-translate-y-2">
+                    <h3 class="text-xl font-heading font-bold mb-4 text-primary">Startups & Erfinder</h3>
+                    <p class="text-gray-600">Unternehmer mit innovativen Produkten oder Dienstleistungen, die auf den Markt gebracht werden sollen.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-primary shadow-md hover:shadow-xl transition-all hover:-translate-y-2">
+                    <h3 class="text-xl font-heading font-bold mb-4 text-primary">Soziale Projekte</h3>
+                    <p class="text-gray-600">Gemeinnützige Organisationen und soziale Initiativen, die Gutes tun und Unterstützung benötigen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-secondary to-secondary-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">Bereit, deine Crowdfunding-Kampagne zu starten?</h2>
+                <p class="text-lg mb-10 opacity-90">Generiere jetzt deine massgeschneiderte Strategie und erhöhe deine Erfolgschancen.</p>
+                <a href="#start" class="inline-block bg-primary text-white px-8 py-4 rounded-full text-lg font-bold uppercase tracking-wide hover:bg-primary-dark transition-all hover:-translate-y-1 hover:shadow-xl">Jetzt Strategie erstellen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-dark text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-heading font-bold mb-6 text-primary">Crowdify</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Über uns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Karriere</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-heading font-bold mb-6 text-primary">Ressourcen</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Erfolgsgeschichten</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Leitfäden</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-heading font-bold mb-6 text-primary">Kontakt</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Partnerschaften</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Presse</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="flex justify-center space-x-4 mb-8">
+                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-gray-500">
+                <p>&copy; 2025 Crowdify. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
